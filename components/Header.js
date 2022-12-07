@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HeaderIcon from "./HeaderIcon";
 import {
   BellIcon,
   ChatIcon,
@@ -15,7 +16,7 @@ import {
 } from "@heroicons/react/outline";
 function Header() {
   return (
-    <div>
+    <div className="sticky top-0 z-50 bg-white flex items-center p-2 lg:px-5 shadow-md">
       {/*Left*/}
       <div className="flex items-center">
         <Image
@@ -27,15 +28,31 @@ function Header() {
         <div className="flex ml-2 items-center rounded-full bg-gray-100 p-2">
           <SearchIcon className="h-6 text-gray-600" />
           <input
-            className="flex ml-2 items-center bg-transparent outline-none placeholder-gray-500  "
+            className="hidden md:inline-flex ml-2 items-center bg-transparent outline-none placeholder-gray-500  "
             type="text"
             placeholder="Search MyBook"></input>
         </div>
       </div>
 
       {/*Center*/}
-
+      <div className="flex justify-center flex-grow">
+        <div className="flex space-x-6 md:space-x-2">
+          <HeaderIcon Icon={HomeIcon} />
+          <HeaderIcon Icon={FlagIcon} />
+          <HeaderIcon Icon={PlayIcon} />
+          <HeaderIcon Icon={ShoppingCartIcon} />
+          <HeaderIcon Icon={UserGroupIcon} />
+        </div>
+      </div>
       {/*Right*/}
+      <div className="flex items-center sm:space-x-2 justify-end">
+        {/*Profile pic*/}
+        <p className="whitespace-nowrap font-semibold pr-3">Big Sask</p>
+        <ViewGridIcon className="icon" />
+        <ChatIcon className="icon" />
+        <BellIcon className="icon" />
+        <ChevronDownIcon className="icon" />
+      </div>
     </div>
   );
 }
